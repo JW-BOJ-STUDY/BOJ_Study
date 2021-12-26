@@ -1,4 +1,6 @@
 # 1158, N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 작성하시오.
+# 입출력을 input이 아닌 sys로 하면 시간초과를 면할 수 있다
+
 from collections import deque
 
 N, K = map(int, input().split())
