@@ -6,4 +6,33 @@
 # 임의의 수열이 주어졌을 때 스택을 이용해 그 수열을 만들 수 있는지 없는지, 있다면 어떤 순서로 push와 pop 연산을 수행해야 하는지를 알아낼 수 있다.
 # 이를 계산하는 프로그램을 작성하라.
 
-# 되나/?
+import sys
+from collections import deque
+
+
+def input():
+    return sys.stdin.readline().rstrip()
+
+
+num = (int)(input())
+mystack = deque()
+con = []
+count = 1
+temp = True
+
+for i in range(num):
+    n = (int)(input())
+    while count <= n:
+        mystack.append(count)
+        con.append("+")
+        count += 1
+    if mystack[-1] == n:
+        mystack.pop()
+        con.append("-")
+    else:
+        temp = False
+if temp == False:
+    print("NO")
+else:
+    for j in con:
+        print(j)
