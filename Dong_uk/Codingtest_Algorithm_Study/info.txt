@@ -1,0 +1,8 @@
+이후 사용될 중요 개념 및 코드
+
+import time
+start_time = time.time() #측정시작
+end_time = time.time() #측정종료
+print ("time :" end_time - start_time)
+
+위 코드를 사용하면 런타임을 측정가능하다

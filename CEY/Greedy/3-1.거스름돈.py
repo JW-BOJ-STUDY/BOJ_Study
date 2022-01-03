@@ -36,3 +36,5 @@ for i in mlist:
     money %= i
 
 print(count)
+
+# 반복하는 수행을 찾고 그를 반복문으로 작성하는 것이 용건!
