@@ -1,4 +1,4 @@
-
+# 큰 수의 법칙 
 import sys 
 sum = 0
 count = 0
