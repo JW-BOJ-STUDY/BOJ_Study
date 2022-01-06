@@ -2,24 +2,6 @@ import sys
 
 timeItem = [list(map(int, sys.stdin.readline().split())) for _ in range(int(sys.stdin.readline().strip()))]
 
-
-
-# sortedItem = sorted(timeItem, key=lambda x : x[1])
-
-# classNum = 0
-
-# while True:
-#     startTime = sortedItem.pop()[0]
-#     N = len(sortedItem)
-#     for i in range(N):
-#         if sortedItem[N - 1 - i][1] <= startTime:
-#             startTime = sortedItem.pop(N - 1 - i)[0]
-#     classNum += 1
-#     if(len(sortedItem) == 0):
-#         break
-
-# sys.stdout.write(str(classNum))
-
 sortedItem = sorted(timeItem, key=lambda x : x[1])
 
 start = []
