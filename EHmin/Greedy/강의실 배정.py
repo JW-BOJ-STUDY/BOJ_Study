@@ -1,35 +1,19 @@
 import sys
+import heapq
 
 timeItem = [list(map(int, sys.stdin.readline().split())) for _ in range(int(sys.stdin.readline().strip()))]
 
-sortedItem = sorted(timeItem, key=lambda x : x[1])
+sortedItem = sorted(timeItem)
 
-start = []
-finish = []
+heap = []
 
-for i in range(len(sortedItem)):
-    start.append(sortedItem[i][0])
-    finish.append(sortedItem[i][1])
-    
+heapq.heappush(heap, sortedItem.pop(0)[1])
 
-classNum = 0
-
-while True:
-    finish.pop()
-    startTime = start.pop()
-    N = len(finish)
-    while True:
-        if startTime in finish:
-            a = finish.index(startTime)
-            finish.pop(a)
-            startTime = start.pop(a)
-        else:
-            startTime -= 1
-            if startTime == 0:
-                break
+for i in sortedItem:
+    if heap[0] <= i[0]:
+        heapq.heappop(heap)
+        heapq.heappush(heap, i[1])
+    else:
+        heapq.heappush(heap, i[1])
         
-    classNum += 1
-    if(len(finish) == 0):
-        break
-
-sys.stdout.write(str(classNum))
+sys.stdout.write(str(len(heap)))
