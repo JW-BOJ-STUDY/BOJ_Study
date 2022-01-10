@@ -10,5 +10,22 @@ import sys
 def input():
     return sys.stdin.readline().rstrip()
 
-
 n, m, k = map(int, input().split())
+
+
+if n//2 > m:
+    k = k-(n - m*2)
+    if k<0:
+        k=0
+    n = m*2
+elif n//2 < m:
+    k = k-(m - n//2)
+    if k<0:
+        k=0
+    m=n//2
+if k%3==0:
+    team=m-k//3
+else:
+    team=m-1-k//3
+    
+print(team)
