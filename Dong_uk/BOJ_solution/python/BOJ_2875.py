@@ -1,7 +1,7 @@
 #남자 여자 비율이 1:2
 F, M, K = map(int,input().split())
 
-result = 0
+'''
 while K > 0 :
     MM = 2*M      
     if F > MM : 
@@ -15,3 +15,11 @@ while K > 0 :
         M -= 1
         K -= 3 
 print (min(F//2, M))
+'''
+
+result = 0
+while F >= 2 and M >= 1 and F+M >= K+3:
+    F -= 2
+    M -= 1
+    result += 1
+print(result)
