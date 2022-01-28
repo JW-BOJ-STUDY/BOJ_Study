@@ -7,7 +7,7 @@ B,C = list(map(int, sys.stdin.readline().split()))
 CNum = 0 
 
 for item in stdInRoom:
-    if( item <= B):
+    if(item <= B):
         continue
     elif((item - B)%C == 0):
         CNum += (item - B)//C
