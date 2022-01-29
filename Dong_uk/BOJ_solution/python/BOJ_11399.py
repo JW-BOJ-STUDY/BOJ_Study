@@ -7,5 +7,3 @@ for i in range(1, N) :
     list[i] += list[i-1]
 
 print(sum(list))
-
-
