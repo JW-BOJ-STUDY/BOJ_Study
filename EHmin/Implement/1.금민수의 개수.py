@@ -39,6 +39,3 @@ def numberOfGMNumberBelow(arr, smaller):
 
 
 print( numberOfGMNumberBelow(end, False) - numberOfGMNumberBelow(start, True))
-
-
-# 77 74 44 45       77 75 
