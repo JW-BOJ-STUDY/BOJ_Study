@@ -14,7 +14,7 @@ if M != 0 :
     notBroken -= set(map(str, input().split()))
 
 for i in range(1000000): ##내려오는 경우도 생각하여야한다
-    for ii in str(i):
+    for ii in str(i): ## 당연히 i인데 N으로 헷갈렸다
         if ii not in notBroken:
             break
     
@@ -25,7 +25,3 @@ for i in range(1000000): ##내려오는 경우도 생각하여야한다
         bestCount = min(bestCount, len(str(i)) + abs(i - N))
     '''
 print (bestCount)
-
-        
-
-
