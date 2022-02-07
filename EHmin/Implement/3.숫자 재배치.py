@@ -10,8 +10,6 @@ permutations = list(permutations((a), len(a)))
 
 permutations.sort(reverse=True)
 
-print(permutations)
-
 output = 0 
 
 for num in permutations:
