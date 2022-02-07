@@ -6,19 +6,19 @@ A, B = sys.stdin.readline().split()
 a = list(A) #a문자열을 리스트로 변환
 b = list(B)
 
-permutations = list(permutations((a), len(a)))
+permutations = list(permutations((a), len(a))) #가능한 모든 순열을 생성
 
 permutations.sort(reverse=True)
 
 output = 0 
 
 for num in permutations:
-    if int(''.join(num)) < int(''.join(b)) and num[0] != '0':
-        output = int(''.join(num))
-        break;
+    if int(''.join(num)) < int(''.join(b)) and num[0] != '0': # 0으로 시작하지 않고, 더 작은 수를 만나면
+        output = int(''.join(num))# 저장 하고
+        break;# 끝냄
 
 if output == 0:
-    sys.stdout.write("-1")
+    sys.stdout.write("-1") # 한번도 실행이 안되면 불가능 한것을 의미한다. 
 else:
     sys.stdout.write(str(output))
     
