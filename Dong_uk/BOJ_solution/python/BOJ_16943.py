@@ -16,4 +16,5 @@ for i in AA:
         continue
     elif int(i) < int(B):
         minBig = max(int(i),minBig)
+
 print(minBig)

@@ -17,7 +17,7 @@ for i in range(1000000): ##내려오는 경우도 생각하여야한다
     for ii in str(i): ## 당연히 i인데 N으로 헷갈렸다
         if ii not in notBroken:
             break
-    
+        
         elif len(str(i))+abs((N-i)) < bestCount:
             bestCount = len(str(i))+abs((N-i))
     '''
