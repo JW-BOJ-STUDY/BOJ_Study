@@ -13,7 +13,6 @@ def pop():
         print("-1")
     else:
         print(str(stack.pop()))
-              
 
 def size():
     print(str(len(stack)))
