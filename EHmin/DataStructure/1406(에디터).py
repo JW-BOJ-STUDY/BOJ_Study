@@ -3,56 +3,77 @@ from sys import stdin, stdout
 input = stdin.readline
 print = stdout.write
 
-sentence = list(input().strip())
-cursor_position = len(sentence) - 1
+########################################################################
+class DList:
+    
+    class Node:
+        def __init__(self, item, prev, link): 
+            self.item = item
+            self.prev = prev 
+            self.next = link  
 
-def move_cursor_left(cursor_position):
-    if(cursor_position == -1):
-        return cursor_position
-    else:
-        cursor_position = cursor_position - 1
-        return cursor_position
-        
-def move_cursor_right(cursor_position):
-    if(cursor_position == len(sentence)):
-        return cursor_position
-    else:
-        cursor_position = cursor_position + 1
-        return cursor_position
-        
-def delete(cursor_position):
-    if(cursor_position == -1):
-        return cursor_position
-    else:
-        del sentence[cursor_position]
-        cursor_position = cursor_position - 1
-        return cursor_position
-        
-def add(cursor_position,x):
-    cursor_position = cursor_position + 1
-    if cursor_position == len(sentence):
-        sentence.append(x)
-        return cursor_position
-    else:
-        sentence.insert(cursor_position,x)
-        return cursor_position
+    def __init__(self):  
+        self.head = self.Node(None, None, None)
+        self.tail = self.Node(None, self.head, None)
+        self.head.next = self.tail
+        self.size = 0
 
+    def Dl_size(self):
+        return self.size
+
+    def insert_after(self, p, item):  
+        t = p.next 
+        n = self.Node(item, p, t)  
+        t.prev = n  
+        p.next = n  
+        self.size += 1
+        return n
+
+    def delete(self, x): 
+        f = x.prev 
+        r = x.next 
+        f.next = r  
+        r.prev = f  
+        self.size -= 1
+        return f 
+
+    def print_list(self):
+        p = self.head.next
+        while p != self.tail:
+            print(p.item)
+            p = p.next  
+
+##########################################################################
+
+sentence = DList()
+input_sentence = list(input().strip())
+present_node = None
+for word in input_sentence:
+    if sentence.Dl_size()== 0:
+        present_node = sentence.insert_after(sentence.head, word)
+    else:
+        present_node = sentence.insert_after(present_node, word)
+
+        
 for _ in range(int(input())):
     order = input().strip().split()
     if order[0] == "L":
-        cursor_position = move_cursor_left(cursor_position)
-        # print(sentence,cursor_position)
+        if present_node.prev == None:
+            _
+        else:
+            present_node = present_node.prev
     elif order[0] == "D":
-        cursor_position = move_cursor_right(cursor_position)
-        # print(sentence, cursor_position)
+        if present_node.next == sentence.tail:
+            _
+        else:
+            present_node =present_node.next
     elif order[0] == "B":
-        cursor_position = delete(cursor_position)
-        # print(sentence, cursor_position)
+        if present_node.prev == None:
+            _
+        else:
+            present_node = sentence.delete(present_node)
     else:
-        cursor_position = add(cursor_position,order[1])
-        # print(sentence, cursor_position)
+        present_node = sentence.insert_after(present_node, order[1])
+
         
-for word in sentence:
-    print(word)
-
-
+sentence.print_list()
