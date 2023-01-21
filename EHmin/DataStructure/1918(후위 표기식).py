@@ -49,7 +49,7 @@ while ("+" in notation or "-" in notation):
 for i in range(index-1,-1,-1):
     notation = notation.replace(str(i), dic[str(i)]) 
 
-## 이제 각각의 케이스에 대한건 전부 해결했다. ()안에 여러개가 들어가는 경우 어떻게 해줄것인지에 대한 고민이 필요
+## 이제 각각의 케이스에 대한건 전부 해결했다. ()안에 여러개가 들어가는 경우 어떻게 해줄것인지에 대한 고민이 필요 .
 print(notation)
         
 
