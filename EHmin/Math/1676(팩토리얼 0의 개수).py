@@ -5,7 +5,7 @@ input = stdin.readline
 N = int(input().strip())
 
 if N == 0:
-    print("0") # 이게 왜 0인지는 조금 애매한거 같지만.
+    print("0") # 이게 왜 0인지는 조금 애매한거 같지만
 elif N == 1:
     print("0")
 else:
