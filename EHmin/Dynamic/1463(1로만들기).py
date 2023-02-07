@@ -1,23 +1,13 @@
 N = int(input())
 
-result = 0 
+dp = [0]* (N+1)
 
-while N != 1:
-    if N % 3 == 0:
-        N /= 3; result += 1
-    elif N % 2 == 0:
-        N /= 2; result += 1
-    else:
-        N -= 1; result += 1
-
-def find_best(N):
-    if N == 1:
-        return 0
-    if N % 3 == 0:
-        return find_best(N/3) + 1
-    if N % 2 == 0:
-        return find_best(N/2) + 1
-    if N != 1:
-        return find_best(N-1) + 1
-    print(1) # 
-print(result)
+for i in range(2, N+1):
+    dp[i] = dp[i-1] + 1
+    if i % 2 == 0:
+        dp[i] = min(dp[i], dp[i//2]+1)
+    if i % 3 == 0:
+        dp[i] = min(dp[i], dp[i//3] + 1)
+        
+print(dp[N]) #1을 계산하는 방식, 4를 계산 하는 방식은 2*2 와 3+1이 있으니, 이렇게 계산해 가는 과정을 기억했다가
+#유리한걸 사용해나가겠다!
