@@ -12,4 +12,4 @@ location_rel = []
 for loc in location_abs:
     location_rel.append(loc - location_start)
 
-print(math.gcd(*location_rel)) # 파이썬에서 *는 언패킹 오퍼레이터!
+print(math.gcd(*location_rel)) # 파이썬에서 *는 언패킹 오퍼레이터
