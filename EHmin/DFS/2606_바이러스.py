@@ -1,6 +1,7 @@
 # input 받아오기 
 c_num = int(input().strip())
 graph = [[] for i in range(c_num)]
+# graph = [[]] * c_num 이랑 똑같음 >> 겉모습은 똑같은데 이렇게 진행하면 레퍼런스도 공유하는 모양
 visited = [False] * c_num
 
 #input을 인접리스트로 표현하기 
